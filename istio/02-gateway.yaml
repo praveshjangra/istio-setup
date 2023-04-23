@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: nginx-gateway
+  namespace: playground
+spec:
+  selector:
+    istio: nginx-default-gateway-deployment
+  servers:
+  - hosts:
+    - '*'
+    port:
+      name: http
+      number: 80
+      protocol: HTTP
